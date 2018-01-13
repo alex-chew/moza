@@ -2,6 +2,8 @@
 
 A mosaic generator.
 
+![Example mosaic](example.jpg)
+
 # Installation and usage
 
 [Pipenv](https://docs.pipenv.org/) is used for dependency management. After
