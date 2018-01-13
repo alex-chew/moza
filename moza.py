@@ -1,5 +1,6 @@
 import glob
 import math
+import random
 
 import numpy as np
 from PIL import Image
@@ -8,6 +9,7 @@ TILES_DIR = 'tiles'
 SOURCE_IMG = 'source.jpg'
 TARGET_IMG = 'target.jpg'
 BLOCK_SIZE = 20
+TILE_CHOICES = 3
 
 
 def color_dist(c1, c2):
@@ -46,8 +48,9 @@ def main():
         row_tiles = []
         for block_color in row_colors:
             sort_key = lambda c2_path: color_dist(block_color, c2_path[0])
-            closest_tile_path = sorted(tile_colors, key=sort_key)[0][1]
-            row_tiles.append(tile_images[closest_tile_path])
+            closest_tiles = sorted(tile_colors, key=sort_key)[:TILE_CHOICES]
+            tile_path = random.choice(closest_tiles)[1]
+            row_tiles.append(tile_images[tile_path])
         rows.append(np.concatenate(row_tiles, axis=0))
     target = np.concatenate(rows, axis=1)
 
