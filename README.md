@@ -17,3 +17,9 @@ $ python moza.py SOURCE TILES TARGET
 The `TILES` argument should be a directory containing images to be used as
 tiles; they should be square and of the same size, and ideally small (as they
 are kept in memory to produce the mosaic).
+
+Using the provided sample `source.jpg` and `tiles`, saving to `target.jpg`:
+
+```bash
+$ python moza.py source.jpg tiles target.jpg
+```
