@@ -30,8 +30,8 @@ def get_block_colors(array, block_size):
     blocks_y = math.ceil(array.shape[1] / block_size)
     block_colors = np.zeros((blocks_x, blocks_y, array.shape[2]))
 
-    for c, block_col in enumerate(np.split(array, blocks_x, axis=0)):
-        for r, block in enumerate(np.split(block_col, blocks_y, axis=1)):
+    for c, block_col in enumerate(np.array_split(array, blocks_x, axis=0)):
+        for r, block in enumerate(np.array_split(block_col, blocks_y, axis=1)):
             block_colors[c, r] = block.mean(axis=(0, 1))
     return block_colors
 
